@@ -1,0 +1,27 @@
+<!DOCTYPEhtml>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+div{color: red;}
+h1{color: blue;}
+h2{color: green;}
+</style>
+</head>
+<body>
+
+<h1>This is Final Exam Email</h1>
+<h2 th:text="'Hello ' + ${name}"></h2>
+<h2>List of Items</h2>
+<table border="1">
+	<tr th:each="item : ${items}">
+		<td th:text="${item.name}"></td>
+		<td th:text="${item.price}"></td>
+		<td th:text="${item.quantity}"></td>
+	</tr>
+</table>
+<div th:text="${message}">
+Some message</div>
+<div th:text="${footer}">
+Some Footer</div>
+</body>
+</html>

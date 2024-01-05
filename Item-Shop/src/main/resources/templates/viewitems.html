@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Here is Pickles Store</h2>
+
+<div class="list" sec:authorize="hasRole('RICK')">
+<table border="1">
+	<tr>
+		<th>Name</th>
+		<th>Price</th>
+		<th>Quantity</th>
+	</tr>
+	
+	<tr th:each="item : ${items}">
+		<td th:text="${item.name}"></td>
+		<td th:text="${item.price}"></td>
+		<td th:text="${item.quantity}"></td>
+		<td><a href="" th:href="@{/edit/{id}(id=${item.id})}">EDIT</a>
+		<td><a href="" th:href="@{/delete/{id}(id=${item.id})}">DELETE</a>
+	</tr>
+</table>
+</div>
+
+<div class="list" sec:authorize="hasRole('MORTY')">
+<table border="1">
+	<tr>
+		<th>Name</th>
+		<th>Price</th>
+		<th>Quantity</th>
+	</tr>
+	
+	<tr th:each="item : ${items}">
+		<td th:text="${item.name}"></td>
+		<td th:text="${item.price}"></td>
+		<td th:text="${item.quantity}"></td>
+	</tr>
+</table>
+</div>
+
+<a th:href="@{/}">Back Home</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>This is Root</h2>
+<a th:href="@{/viewItems}">View Items</a>
+<a th:href="@{/addItem}">Add Items</a>
+<a th:href="@{/email}">Send Email</a>
+<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Logout">
+	</form>
+</body>
+</html>

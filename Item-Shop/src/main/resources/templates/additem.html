@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="htt://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Add Item to Store</h2>
+<form action="#" th:action="@{/addItemList}" th:object="${store}">
+		Item Name <input type="text" th:field="*{name}"><br>
+		Item Price <input type="number" th:field="*{price}"><br>
+		Item Quantity <input type="number" th:field="*{quantity}"><br>
+		 <input	type="submit" value="Add Item">
+	</form>
+	<a th:href="@{/viewItems}">View Store</a>
+	<a th:href="@{/}">Back Home</a>
+</body>
+</html>

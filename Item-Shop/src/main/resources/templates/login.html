@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<style>
+body{
+	background: url('https://wallpaperaccess.com/full/1236100.jpg');
+	background-position: center;
+}
+input[type=text],input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #004080;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.login{
+	background-color: snow;
+    text-align: center;
+    width: 300px;
+    border: 15px solid #5b6fa6;
+    border-radius: 25px;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+a:link, a:visited {
+  font-family: 'Helvetica Neue';
+  background-color: #004080;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+a:hover, a:active {
+  background-color: #0080ff;
+}
+
+</style>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="login">
+	<form th:action="@{/login}" method="post">
+		
+		<div th:if="${param.error}">
+			<div class="alert">
+				Invalid Username or Password
+			</div>
+		</div>
+		<div th:if="${param.logout}">
+			<div class="alert">
+				You have logged out successfuly
+			</div>
+		</div>
+		
+		<div>
+			<label for="username">Users Name</label>
+			<input type="text"
+					id="username"
+					name="username"
+					autofocus="autofocus"
+					placeholder="Username">
+		</div>
+		<div>
+			<label for="password">Password</label>
+			<input type="password"
+					id="password"
+					name="password"
+					placeholder="Password">
+		</div>
+		<div>
+			<input type="submit"
+					id="Login-submit"
+					name="Login-submit">
+		</div>
+	</form>
+	<a th:href="@{/}">Back Home</a>
+	</div>
+
+</body>
+</html>
